@@ -5,7 +5,7 @@ const parent = chrome.contextMenus.create({
         const { cardId, columnId, contentType, contentId, repo, contentNumber } = clickedCardData.value;
 
         chrome.storage.sync.get(['githubToken'], async ({ githubToken }) => {
-          if (githubToken.length === 40) {
+          if (githubToken && githubToken.length === 40) {
             const headers = {
               'Content-Type': 'application/json',
               'Authorization': `token ${githubToken}`,
