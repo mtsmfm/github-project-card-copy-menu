@@ -8,7 +8,7 @@ document.addEventListener("mousedown", function (event) {
       const { cardId, columnId, contentType, contentId, cardRepo, cardTitle } = cardElement.dataset;
 
       const repo = cardRepo ? JSON.parse(cardRepo)[0] : undefined;
-      const contentNumber = contentType === 'Issue' ? JSON.parse(cardTitle)[1] : undefined;
+      const contentNumber = contentType === 'Issue' ? cardElement.querySelector('.js-issue-number').textContent.slice(1) : undefined;
 
       clickedCardData = {
         cardId, columnId, contentType, contentId, repo, contentNumber
